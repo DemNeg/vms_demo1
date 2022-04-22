@@ -1,12 +1,6 @@
 /* eslint-disable prettier/prettier */
 import mongoose from "mongoose";
-
-enum typeEtat {
-    FINANCIER = 'Etat financier',
-    ECONOMIQUE = 'Etat economique',
-    LOGISTIQUE = 'Etat Logistique',
-    MATERIAL = 'Etat Matereal'
-}
+import { typeEtat } from "../Genrics/typeEtat.enum";
 
 export const EtatSchema = new mongoose.Schema({
     typeEtat : {
@@ -19,7 +13,10 @@ export const EtatSchema = new mongoose.Schema({
         default:'NEW'
     },
     dateDebut : Date,
-    dateFin : Date
+    dateFin : Date,
+    enginId:{
+        type: mongoose.Types.ObjectId
+    } 
 })
 
 
@@ -27,5 +24,7 @@ export interface Etat{
     typeEtat : typeEtat,
     valeurEtat : string,
     dateDebut : Date,
-    dateFin : Date
+    dateFin : Date,
+    enginId :string
+
 } 

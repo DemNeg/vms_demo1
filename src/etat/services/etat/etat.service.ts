@@ -11,11 +11,8 @@ export class EtatService {
     constructor( @InjectModel('Etat') private readonly etatModel:Model<Etat>){}
 
     async addNewEtat(etat:AddEtatDto):Promise<Etat> {
-        const etat_inter = {
-            typeEtat: etat.typeEtat,
-            valeurEtat: etat.valeurEtat,
-            dateDebut: new Date()
-        }
+    
+        const etat_inter ={...etat,dateDebut: new Date()}
         const newEtat = new this.etatModel(etat_inter);
         return await newEtat.save();
     }

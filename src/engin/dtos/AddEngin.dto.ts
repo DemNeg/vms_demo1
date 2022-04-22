@@ -1,10 +1,6 @@
-import { IsNotEmpty, IsOptional, IsString } from "class-validator";
-
 /* eslint-disable prettier/prettier */
-enum etatInfo {
-    EN_SAISI = 'En cours de saisie',
-    TERMINE = 'Saisie termine'
-}
+import { IsNotEmpty, IsOptional, IsString } from "class-validator";
+import { etatInfo } from "../Generics/etatInfo.enum";
 
 export class AddEnginDto{
 
@@ -65,10 +61,5 @@ export class AddEnginDto{
             id: string,
         }
     ];
-    @IsNotEmpty()
-    refsEtats : [
-        {
-            id: string,
-        }
-    ]
+    
 }

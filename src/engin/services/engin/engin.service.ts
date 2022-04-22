@@ -13,5 +13,9 @@ export class EnginService {
         const newEngin = new this.enginModel(engin);
         return await newEngin.save();
     }
+
+    async getAllEngins(){
+        return await this.enginModel.find();
+    }
     
 }

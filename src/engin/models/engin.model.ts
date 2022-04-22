@@ -1,10 +1,6 @@
 /* eslint-disable prettier/prettier */
 import * as mongoose from "mongoose";
-
-enum etatInfo {
-    EN_SAISI = 'En cours de saisie',
-    TERMINE = 'Saisie termine'
-}
+import { etatInfo } from "../Generics/etatInfo.enum";
 
 export const EnginSchema = new mongoose.Schema({
     reference : String,
@@ -54,12 +50,6 @@ export const EnginSchema = new mongoose.Schema({
             id: mongoose.Types.ObjectId,
         }
     ],
-    refsEtats : [
-        {
-            id: mongoose.Types.ObjectId,
-        }
-    ]
-
 });
 
 
@@ -106,11 +96,7 @@ export interface Engin{
         {
             id: string,
         }
-    ],
-    refsEtats : [
-        {
-            id: string,
-        }
     ]
+    
 }
 
